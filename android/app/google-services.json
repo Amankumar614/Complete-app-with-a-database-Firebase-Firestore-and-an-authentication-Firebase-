@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "623200267035",
+    "project_id": "brewcoffee-c9351",
+    "storage_bucket": "brewcoffee-c9351.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623200267035:android:f05af277c5c80f81bc41be",
+        "android_client_info": {
+          "package_name": "com.example.brew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623200267035-kpv3qo5r5mlbfnbvdk6vi61ravrcd7t5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD79Ai66rPMxrPABFDMOMMc26GqW7axPZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623200267035-kpv3qo5r5mlbfnbvdk6vi61ravrcd7t5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
