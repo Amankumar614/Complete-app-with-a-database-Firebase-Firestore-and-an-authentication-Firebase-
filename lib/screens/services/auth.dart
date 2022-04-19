@@ -46,8 +46,8 @@ class AuthService {
              final Credential = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: password);
         // THIS WILL MAKE THE NEW DOCUMENT FOR THE NEW USERS
-        print('custom name $name');
         await DatabaseService(uid: Credential.user!.uid).UpdateUserData('3', name,500);
+        // await DatabaseService(uid: Credential.user!.uid).brewcollection.
     return _userfromFirebase(Credential.user);
         } catch (e) {
           return null;

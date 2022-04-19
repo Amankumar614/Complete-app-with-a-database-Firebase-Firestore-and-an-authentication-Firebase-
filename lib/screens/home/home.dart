@@ -28,6 +28,7 @@ class Home extends StatelessWidget {
       value: DatabaseService(uid: '').brews,
       initialData: null,
       child: Scaffold(
+          
          resizeToAvoidBottomInset: false,
         backgroundColor: Colors.brown[100],
         appBar: AppBar(

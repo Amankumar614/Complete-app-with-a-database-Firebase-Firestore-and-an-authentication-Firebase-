@@ -1,5 +1,7 @@
+import 'package:brew/screens/authenticate/register.dart';
 import 'package:brew/screens/model/uid.dart';
 import 'package:brew/screens/model/user.dart';
+import 'package:brew/screens/services/auth.dart';
 import 'package:brew/screens/services/databases.dart';
 import 'package:brew/shared/loding.dart';
 import 'package:flutter/material.dart';
@@ -21,10 +23,12 @@ class _settingFormState extends State<settingForm> {
   int ?_currentStrength;
   @override
   Widget build(BuildContext context) {
+    
     return StreamBuilder<UserData>(
       stream: DatabaseService(uid: OwnUid).userdata,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
+         
           UserData? userData = snapshot.data;
           print("real name ${userData!.name}");
           return Form(
@@ -100,15 +104,27 @@ class _settingFormState extends State<settingForm> {
                   },
                   child: Text('update'),
                   style: ElevatedButton.styleFrom(primary: Colors.pink),
-                )
+                ),
+                SizedBox(height:20),
+                ElevatedButton(onPressed: (){DatabaseService(uid: OwnUid).DeleteUserData();
+                Navigator.pop(context);
+                }, child: Text('delete your account',style: TextStyle(color: Colors.red),),style: ElevatedButton.styleFrom(primary: Colors.grey[800]),)
               ],
             ),
           ),
         );
         } 
-        else if(snapshot.error != null){
+        else if(snapshot.error.toString() == "Bad state: cannot get a field on a DocumentSnapshotPlatform which does not exist"){
           print("no error ${snapshot.error}");
-          return Center(child: Text('try again'),);
+          return Center(child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('You are no more memeber of brew'),
+              ElevatedButton(onPressed: (){AuthService().signout();
+              Navigator.pop(context);
+              }, child: Text('Log Out'),style: ElevatedButton.styleFrom(primary: Colors.pink),)
+            ],
+          ),);
         }else{
           return loader();
         }

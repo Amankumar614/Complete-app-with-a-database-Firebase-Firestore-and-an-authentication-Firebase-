@@ -54,4 +54,12 @@ class DatabaseService {
         suger: snapshot.get('suger'),
         strength: snapshot.get('strength'));
   }
+
+  Future DeleteUserData() async {
+    print("uid from the data base $uid");
+    return await brewcollection
+        .doc(uid)
+        .delete();
+  }
+
 }
